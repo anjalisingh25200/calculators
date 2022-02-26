@@ -12,7 +12,7 @@ app.get('', (req, res) => {
 app.post('/op', (req, res) => {
     var n1 = req.body.num1;
     var output = math.evaluate(n1).toString();
-    res.send('Result:' + BigInt(output));
+    res.send('Result:'+ output);
     client.query("Insert into calcu values('" + n1 + "','" + output + "',current_timestamp)",
         (err, result) => {
             if (!err) {
